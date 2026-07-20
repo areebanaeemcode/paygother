@@ -140,7 +140,7 @@ Pay-Together — Smart Group Tour Expense Sharing & Settlement Platform
                 <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
                     {% if is_authenticated %}
                     <a href="{{ dashboard_url|default:'/client/dashboard/' }}"
-                        class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-base shadow-xl shadow-indigo-600/30 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        id="heroDashboardCtaBtn" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-base shadow-xl shadow-indigo-600/30 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
                         <span>Go to Dashboard</span>
                     </a>
                     {% else %}
