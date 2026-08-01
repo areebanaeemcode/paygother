@@ -1,3 +1,4 @@
+// [01 August 2026] Tour & App JS Module Update
 /**
  * Pay-Together — Global Interactive Engine & Theme Controller
  * Handles universal Dark/Light theme toggle, persistence, multi-tab sync, and global utilities.
