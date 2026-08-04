@@ -1,3 +1,4 @@
+// [04 August 2026] Tour & App JS Module Update
 const registerForm = document.getElementById("registerForm");
 const messageBox = document.getElementById("message");
 
