@@ -1,4 +1,4 @@
-// [05 August 2026] Tour & App JS Module Update
+// [04 August 2026] Tour & App JS Module Update
 document.addEventListener("DOMContentLoaded", () => {
     const otpForm = document.getElementById("otpForm");
     const otpBoxes = document.querySelectorAll(".otp-input");
