@@ -1,3 +1,4 @@
+// [10 August 2026] Tour & App JS Module Update
 (function () {
     function collectBody() {
         const tokenInput = document.getElementById('join_token');

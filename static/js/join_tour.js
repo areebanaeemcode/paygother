@@ -1,3 +1,4 @@
+// [10 August 2026] Tour & App JS Module Update
 (function () {
     document.addEventListener('DOMContentLoaded', function () {
         const api = window.PTApi;
