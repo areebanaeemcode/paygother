@@ -1,3 +1,4 @@
+// [12 August 2026] Tour & App JS Module Update
 /**
  * Pay-Together Landing Page Interactive Engine
  * Handles interactive demo mini-settlement, FAQ accordion, smooth scrolling & mobile menu.
