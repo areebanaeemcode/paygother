@@ -807,3 +807,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, td, th, li {
   }
 }
 
+
+/* Tour Page Responsive Polish - 20 Aug 2026 */
+.tour-detail-container { min-width: 0; width: 100%; }
+
