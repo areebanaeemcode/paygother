@@ -810,3 +810,6 @@ h1, h2, h3, h4, h5, h6, p, span, a, td, th, li {
 
 /* Dashboard Layout Fluid Utilities - 22 Aug 2026 */
 .dashboard-fluid-container { min-width: 0; width: 100%; }
+
+/* Settlement Module Responsive Polish - 25 Aug 2026 */
+.settlement-card-fluid { min-width: 0; width: 100%; transition: transform 0.2s ease; }
