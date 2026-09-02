@@ -816,3 +816,6 @@ h1, h2, h3, h4, h5, h6, p, span, a, td, th, li {
 
 /* Tours Discovery Table Polish - 29 Aug 2026 */
 .tours-table-fluid { width: 100%; border-collapse: separate; border-spacing: 0; }
+
+/* Notification Item Ripple & Transitions - 02 Sep 2026 */
+.notif-card-smooth { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
