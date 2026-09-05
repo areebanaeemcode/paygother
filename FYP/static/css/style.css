@@ -819,3 +819,6 @@ h1, h2, h3, h4, h5, h6, p, span, a, td, th, li {
 
 /* Notification Item Ripple & Transitions - 02 Sep 2026 */
 .notif-card-smooth { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Analytics Chart Aspect Ratio Utilities - 05 Sep 2026 */
+.chart-responsive-box { position: relative; width: 100%; min-height: 280px; }
