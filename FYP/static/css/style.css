@@ -822,3 +822,6 @@ h1, h2, h3, h4, h5, h6, p, span, a, td, th, li {
 
 /* Analytics Chart Aspect Ratio Utilities - 05 Sep 2026 */
 .chart-responsive-box { position: relative; width: 100%; min-height: 280px; }
+
+/* Admin Panel SuperUser Table Styling - 08 Sep 2026 */
+.admin-metric-card { backdrop-filter: blur(8px); border-radius: 1rem; }
