@@ -825,3 +825,6 @@ h1, h2, h3, h4, h5, h6, p, span, a, td, th, li {
 
 /* Admin Panel SuperUser Table Styling - 08 Sep 2026 */
 .admin-metric-card { backdrop-filter: blur(8px); border-radius: 1rem; }
+
+/* Profile & Final Release Fluid Layout Utilities - 11 Sep 2026 */
+.profile-fluid-layout { max-width: 100%; min-width: 0; box-sizing: border-box; }
