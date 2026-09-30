@@ -66,76 +66,8 @@ Tour Details
         </div>
     </aside>
 
-    <!-- Mobile Top Navigation Header (< md) -->
-    <div class="md:hidden fixed top-0 inset-x-0 z-30 bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between">
-        <a href="/client/dashboard/" class="flex items-center gap-2.5">
-            <img src="{% static 'img/logo-icon.png' %}" alt="Pay-Together Logo" class="w-8 h-8 rounded-xl object-cover shadow-xs">
-            <span class="font-black text-lg text-slate-900 dark:text-white tracking-tight">Pay-Together</span>
-        </a>
-        <div class="flex items-center gap-2">
-            <button type="button" class="theme-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-base cursor-pointer" title="Toggle Theme">
-                <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span>
-                <span class="hidden dark:inline"><i class="fa-solid fa-sun text-amber-400"></i></span>
-            </button>
-            <button type="button" onclick="toggleMobileNav(true)" class="w-9 h-9 flex items-center justify-center rounded-xl bg-indigo-50 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 text-lg cursor-pointer" aria-label="Open Navigation Menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Mobile Slide-out Drawer -->
-    <div id="mobileNavDrawer" class="hidden fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity" onclick="toggleMobileNav(false)"></div>
-        <div class="fixed inset-y-0 left-0 max-w-xs w-full bg-white dark:bg-[#0f172a] shadow-2xl p-6 flex flex-col justify-between z-10">
-            <div>
-                <div class="flex items-center justify-between pb-5 border-b border-slate-100 dark:border-slate-800">
-                    <a href="/client/dashboard/" class="flex items-center gap-3">
-                        <img src="{% static 'img/logo-icon.png' %}" alt="Logo" class="w-10 h-10 rounded-2xl object-cover">
-                        <div>
-                            <h2 class="font-black text-xl text-slate-900 dark:text-white">Pay-Together</h2>
-                            <p class="text-xs text-slate-400">Split expenses easily</p>
-                        </div>
-                    </a>
-                    <button type="button" onclick="toggleMobileNav(false)" class="w-9 h-9 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 text-xl flex items-center justify-center cursor-pointer">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-                <nav class="mt-6 space-y-1.5">
-                    <a href="/client/dashboard/" class="flex items-center px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold text-sm">
-                        <i class="fa-solid fa-house mr-3 w-5 text-indigo-500"></i> Dashboard
-                    </a>
-                    <a href="/client/tours/" class="flex items-center px-4 py-3 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 rounded-xl font-bold text-sm">
-                        <i class="fa-solid fa-suitcase-rolling mr-3 w-5 text-indigo-600"></i> My Tours
-                    </a>
-                    <a href="/client/tours/create/" class="flex items-center px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold text-sm">
-                        <i class="fa-solid fa-circle-plus mr-3 w-5 text-indigo-500"></i> Create Tour
-                    </a>
-                    <a href="/client/analytics/" class="flex items-center px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold text-sm">
-                        <i class="fa-solid fa-chart-pie mr-3 w-5 text-indigo-500"></i> Analytics
-                    </a>
-                    <a href="/client/notifications/" class="flex items-center px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold text-sm">
-                        <i class="fa-solid fa-bell mr-3 w-5 text-indigo-500"></i> Notifications
-                    </a>
-                    <a href="/client/profile/" class="flex items-center px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold text-sm">
-                        <i class="fa-solid fa-user mr-3 w-5 text-indigo-500"></i> Profile
-                    </a>
-                    {% if request.user.is_staff or request.user.is_superuser %}
-                    <a href="http://127.0.0.1:8001/client/admin/" target="_blank" class="flex items-center px-4 py-3 text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40 font-bold rounded-xl text-sm">
-                        <i class="fa-solid fa-shield-halved mr-3 w-5 text-amber-500"></i> Admin Portal
-                        <span class="ml-auto text-[10px] font-black uppercase bg-amber-100 dark:bg-amber-900/60 text-amber-700 dark:text-amber-300 px-1.5 py-0.5 rounded border border-amber-300 dark:border-amber-700">8001</span>
-                    </a>
-                    {% endif %}
-                    <a href="/client/logout/" class="flex items-center px-4 py-3 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-xl font-semibold text-sm mt-4">
-                        <i class="fa-solid fa-right-from-bracket mr-3 w-5"></i> Logout
-                    </a>
-                </nav>
-            </div>
-            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span>Pay-Together v1.0</span>
-                <span class="text-emerald-500 font-bold">FYP</span>
-            </div>
-        </div>
-    </div>
+    <!-- Universal Mobile Topbar & Slide-Out Drawer -->
+    {% include 'includes/mobile_topbar.html' with active_page='tours' %}
 
     <!-- Main -->
     <main class="flex-1 min-w-0 md:ml-64 px-4 sm:px-6 pt-16 md:pt-5 pb-10 md:px-10 relative z-10">

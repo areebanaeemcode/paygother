@@ -1,0 +1,144 @@
+{% load static %}
+<!-- ========================================================================= -->
+<!-- UNIVERSAL MOBILE TOPBAR & SLIDE-OUT DRAWER FOR CLIENT PORTAL              -->
+<!-- Visible only on mobile screens (< md: 768px), seamlessly synced with theme -->
+<!-- ========================================================================= -->
+
+<!-- Fixed Mobile Header -->
+<div class="md:hidden fixed top-0 inset-x-0 z-40 bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 px-4 py-2.5 flex items-center justify-between shadow-xs transition-colors duration-200">
+    <a href="/client/dashboard/" class="flex items-center gap-2.5 group">
+        <img src="{% static 'img/logo-icon.png' %}" alt="Pay-Together Logo" class="w-8 h-8 rounded-xl object-cover shadow-xs group-hover:scale-105 transition-transform">
+        <div>
+            <span class="font-black text-base text-slate-900 dark:text-white tracking-tight flex items-center gap-1">
+                Pay-Together
+                <span class="text-[9px] uppercase font-extrabold px-1 py-0.2 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">FYP</span>
+            </span>
+        </div>
+    </a>
+    
+    <div class="flex items-center gap-2">
+        <!-- Theme Toggle Button -->
+        <button type="button"
+                class="theme-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition cursor-pointer text-sm"
+                title="Toggle Light/Dark Theme"
+                aria-label="Toggle Light/Dark Theme">
+            <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span>
+            <span class="hidden dark:inline"><i class="fa-solid fa-sun text-amber-400"></i></span>
+        </button>
+
+        <!-- Quick Notifications Icon -->
+        <a href="/client/notifications/"
+           class="relative w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition text-sm"
+           title="Notifications">
+            <i class="fa-solid fa-bell"></i>
+            {% if unread_notification_count and unread_notification_count > 0 %}
+            <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 text-white text-[10px] font-black flex items-center justify-center">
+                {{ unread_notification_count }}
+            </span>
+            {% endif %}
+        </a>
+
+        <!-- Hamburger Menu Trigger -->
+        <button type="button"
+                onclick="toggleMobileNav(true)"
+                class="w-9 h-9 flex items-center justify-center rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-base shadow-sm transition active:scale-95 cursor-pointer"
+                aria-label="Open Mobile Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Slide-Out Mobile Navigation Drawer -->
+<div id="mobileNavDrawer" class="hidden fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true">
+    <!-- Backdrop overlay -->
+    <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity" onclick="toggleMobileNav(false)"></div>
+
+    <!-- Drawer Panel -->
+    <div class="fixed inset-y-0 left-0 max-w-xs w-full bg-white dark:bg-[#0f172a] shadow-2xl p-5 flex flex-col justify-between z-10 overflow-y-auto border-r border-slate-200 dark:border-slate-800 transition-colors duration-200">
+        <div>
+            <!-- Drawer Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+                <a href="/client/dashboard/" class="flex items-center gap-2.5">
+                    <img src="{% static 'img/logo-icon.png' %}" alt="Pay-Together Logo" class="w-9 h-9 rounded-xl object-cover shadow-xs">
+                    <div class="min-w-0">
+                        <h2 class="font-black text-lg text-slate-900 dark:text-white tracking-tight truncate">Pay-Together</h2>
+                        <p class="text-[11px] text-slate-400 dark:text-slate-500 truncate">Split expenses easily</p>
+                    </div>
+                </a>
+                <button type="button"
+                        onclick="toggleMobileNav(false)"
+                        class="w-8 h-8 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 text-lg flex items-center justify-center cursor-pointer transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- User Info Banner if logged in -->
+            {% if user and user.is_authenticated %}
+            <div class="mt-4 p-3 rounded-2xl bg-indigo-50/60 dark:bg-slate-800/70 border border-indigo-100 dark:border-slate-700/80 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                    {{ user.first_name|default:"U"|slice:1 }}{{ user.last_name|default:""|slice:1 }}
+                </div>
+                <div class="min-w-0 flex-1">
+                    <p class="text-xs font-bold text-slate-900 dark:text-white truncate">{{ user.first_name|default:user.email }}</p>
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400 truncate">{{ user.email }}</p>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Navigation Links -->
+            <nav class="mt-5 space-y-1.5">
+                <a href="/client/dashboard/"
+                   class="flex items-center px-3.5 py-2.5 rounded-xl font-semibold text-sm transition {% if active_page == 'dashboard' %}bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-bold border-l-4 border-indigo-600{% else %}text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800{% endif %}">
+                    <i class="fa-solid fa-house mr-3 w-5 text-indigo-500"></i> Dashboard
+                </a>
+
+                <a href="/client/tours/"
+                   class="flex items-center px-3.5 py-2.5 rounded-xl font-semibold text-sm transition {% if active_page == 'tours' %}bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-bold border-l-4 border-indigo-600{% else %}text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800{% endif %}">
+                    <i class="fa-solid fa-suitcase-rolling mr-3 w-5 text-indigo-500"></i> My Tours
+                </a>
+
+                <a href="/client/tours/create/"
+                   class="flex items-center px-3.5 py-2.5 rounded-xl font-semibold text-sm transition {% if active_page == 'create_tour' %}bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-bold border-l-4 border-indigo-600{% else %}text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800{% endif %}">
+                    <i class="fa-solid fa-circle-plus mr-3 w-5 text-indigo-500"></i> Create Tour
+                </a>
+
+                <a href="/client/analytics/"
+                   class="flex items-center px-3.5 py-2.5 rounded-xl font-semibold text-sm transition {% if active_page == 'analytics' %}bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-bold border-l-4 border-indigo-600{% else %}text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800{% endif %}">
+                    <i class="fa-solid fa-chart-pie mr-3 w-5 text-indigo-500"></i> Analytics
+                </a>
+
+                <a href="/client/notifications/"
+                   class="flex items-center px-3.5 py-2.5 rounded-xl font-semibold text-sm transition {% if active_page == 'notifications' %}bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-bold border-l-4 border-indigo-600{% else %}text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800{% endif %}">
+                    <i class="fa-solid fa-bell mr-3 w-5 text-indigo-500"></i> Notifications
+                </a>
+
+                <a href="/client/profile/"
+                   class="flex items-center px-3.5 py-2.5 rounded-xl font-semibold text-sm transition {% if active_page == 'profile' %}bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-bold border-l-4 border-indigo-600{% else %}text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800{% endif %}">
+                    <i class="fa-solid fa-user mr-3 w-5 text-indigo-500"></i> Profile
+                </a>
+
+                {% if request.user.is_staff or request.user.is_superuser %}
+                <a href="http://127.0.0.1:8001/client/admin/" target="_blank"
+                   class="flex items-center px-3.5 py-2.5 rounded-xl font-bold text-sm text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40 transition">
+                    <i class="fa-solid fa-shield-halved mr-3 w-5 text-amber-500"></i> Admin Portal
+                    <span class="ml-auto text-[10px] font-black uppercase bg-amber-100 dark:bg-amber-900/60 text-amber-700 dark:text-amber-300 px-1.5 py-0.5 rounded border border-amber-300 dark:border-amber-700">8001</span>
+                </a>
+                {% endif %}
+            </nav>
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+            <a href="/client/logout/"
+               class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/40 font-bold text-xs transition">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </a>
+            
+            <div class="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 px-1">
+                <span>Pay-Together v1.0</span>
+                <span class="text-emerald-500 font-bold">FYP</span>
+            </div>
+        </div>
+    </div>
+</div>

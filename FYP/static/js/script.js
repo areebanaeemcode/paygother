@@ -128,6 +128,28 @@
     window.toggleTheme = toggleTheme;
     window.applyTheme = applyTheme;
 
+    /**
+     * Universal Mobile Navigation Drawer Handler
+     */
+    window.toggleMobileNav = function (open) {
+        var drawer = document.getElementById('mobileNavDrawer');
+        if (!drawer) return;
+        if (open) {
+            drawer.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        } else {
+            drawer.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    };
+
+    // Close on Escape key press
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' || e.keyCode === 27) {
+            if (window.toggleMobileNav) window.toggleMobileNav(false);
+        }
+    });
+
     // Run initialization
     initTheme();
     if (document.readyState === 'loading') {

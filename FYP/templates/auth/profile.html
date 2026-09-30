@@ -67,29 +67,32 @@ My Profile
         </div>
     </aside>
 
+    <!-- Universal Mobile Topbar & Slide-Out Drawer -->
+    {% include 'includes/mobile_topbar.html' with active_page='profile' %}
+
     <main class="flex-1 min-w-0 relative z-10">
 
-        <header class="bg-white/80 backdrop-blur border-b border-slate-200 px-8 md:px-12 py-6 flex justify-between items-center gap-4 flex-wrap sticky top-0 z-20 relative">
+        <header class="bg-white/80 dark:bg-[#0f172a]/90 backdrop-blur border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 md:px-12 pt-16 md:pt-6 pb-5 sm:pb-6 flex justify-between items-center gap-4 flex-wrap sticky top-0 z-20 relative transition-colors duration-200">
             <div>
-                <p class="text-xs font-black uppercase tracking-wider text-indigo-600">Account Settings</p>
-                <h2 class="text-4xl font-black text-slate-800 mt-1 text-shine">My Profile</h2>
+                <p class="text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Account Settings</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-800 dark:text-white mt-1 text-shine">My Profile</h2>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 sm:gap-4 flex-wrap">
                 <button type="button"
-                        class="theme-toggle w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition btn-ripple cursor-pointer text-lg"
+                        class="theme-toggle hidden md:flex w-11 h-11 items-center justify-center rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition btn-ripple cursor-pointer text-lg"
                         title="Toggle Light/Dark Theme"
                         aria-label="Toggle Light/Dark Theme">
                     <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span>
                     <span class="hidden dark:inline"><i class="fa-solid fa-sun text-amber-400"></i></span>
                 </button>
-                <span class="font-black text-slate-700 dark:text-slate-200 text-lg">{{ user.first_name }} {{ user.last_name }}</span>
-                <a href="/client/logout/" class="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-6 py-3 rounded-2xl transition btn-ripple shadow-2xl shadow-rose-500/40 btn-tilt-3d font-black flex items-center gap-2">
+                <span class="font-black text-slate-700 dark:text-slate-200 text-sm sm:text-lg">{{ user.first_name }} {{ user.last_name }}</span>
+                <a href="/client/logout/" class="hidden sm:inline-flex bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl transition btn-ripple shadow-md font-bold text-xs sm:text-sm items-center gap-2">
                     <i class="fa-solid fa-right-from-bracket"></i> Logout
                 </a>
             </div>
         </header>
 
-        <section class="p-8 md:p-12 max-w-6xl mx-auto">
+        <section class="p-4 sm:p-8 md:p-12 max-w-6xl mx-auto">
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger" data-animate>
 

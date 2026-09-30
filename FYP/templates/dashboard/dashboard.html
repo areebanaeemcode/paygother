@@ -98,12 +98,14 @@ Dashboard
         </div>
     </aside>
 
+    {% include 'includes/mobile_topbar.html' with active_page='dashboard' %}
+
     <!-- =================================================================== -->
     <!-- SECTION 2: MAIN DASHBOARD CONTENT AREA                              -->
     <!-- Contains: Header bar, Hero quick action, Stat cards, Recent tours,   -->
     <!-- Onboarding steps, and Footer.                                       -->
     <!-- =================================================================== -->
-    <main class="flex-1 min-w-0 px-6 pt-4 pb-10 md:px-10 md:pt-5 md:pb-10 relative">
+    <main class="flex-1 min-w-0 px-4 sm:px-6 md:px-10 pt-16 md:pt-6 pb-12 relative">
 
         <div class="max-w-7xl mx-auto">
 
@@ -113,12 +115,12 @@ Dashboard
             <div class="flex flex-wrap items-center justify-between mb-6 gap-4">
                 
                 <!-- Welcome greeting with user's dynamic name/email from Django Context -->
-                <div class="welcome-slide" data-animate="left">
-                    <p class="text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-wider">Dashboard</p>
-                    <h1 class="text-4xl md:text-5xl font-black mt-1 text-slate-900 dark:text-white">
+                <div class="welcome-slide flex-1 min-w-0" data-animate="left">
+                    <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-semibold uppercase tracking-wider">Dashboard</p>
+                    <h1 class="text-2xl sm:text-3xl md:text-5xl font-black mt-1 text-slate-900 dark:text-white leading-tight break-words">
                         Welcome back, <span class="text-shine">{{ user.first_name|default:user.email }}</span>
                     </h1>
-                    <p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">Create or join a tour, then split expenses with your travel group.</p>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1 sm:mt-2 text-sm sm:text-base md:text-lg">Create or join a tour, then split expenses with your travel group.</p>
                 </div>
 
                 <!-- Top Right Action Controls -->
@@ -194,22 +196,22 @@ Dashboard
             <!-- ----------------------------------------------------------- -->
             <!-- 2.2 Hero Quick Actions Banner: Create Tour & Join Modal CTA  -->
             <!-- ----------------------------------------------------------- -->
-            <div class="hero-banner bg-gradient-to-r from-indigo-600 via-indigo-700 to-blue-600 dark:from-slate-900 dark:via-indigo-950 dark:to-slate-900 rounded-3xl p-6 md:p-10 shadow-lg mb-10 text-white border border-indigo-500/20 dark:border-slate-800" data-animate>
-                <div class="flex flex-wrap items-center justify-between gap-6">
-                    <div>
-                        <p class="text-indigo-100 dark:text-indigo-300 text-sm font-bold uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-rocket text-indigo-200"></i> Get started</p>
-                        <h2 class="text-3xl md:text-4xl font-black mt-2 tracking-tight">Plan your next trip together</h2>
-                        <p class="text-indigo-100/90 dark:text-slate-300 mt-3 max-w-xl text-base leading-relaxed">Create a tour, share the 6-digit join code with friends, and record expenses as you go. We'll settle it up automatically when the trip ends.</p>
+            <div class="hero-banner bg-gradient-to-r from-indigo-600 via-indigo-700 to-blue-600 dark:from-slate-900 dark:via-indigo-950 dark:to-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-10 shadow-lg mb-8 sm:mb-10 text-white border border-indigo-500/20 dark:border-slate-800" data-animate>
+                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                    <div class="max-w-xl">
+                        <p class="text-indigo-100 dark:text-indigo-300 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-rocket text-indigo-200"></i> Get started</p>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mt-2 tracking-tight">Plan your next trip together</h2>
+                        <p class="text-indigo-100/90 dark:text-slate-300 mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed">Create a tour, share the 6-digit join code with friends, and record expenses as you go. We'll settle it up automatically when the trip ends.</p>
                     </div>
                     <!-- Action Buttons -->
-                    <div class="flex gap-3 flex-wrap">
+                    <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0">
                         <a href="{{ tour_create_url }}"
-                           class="bg-white dark:bg-indigo-600 text-indigo-700 dark:text-white hover:bg-indigo-50 dark:hover:bg-indigo-500 px-6 py-3.5 rounded-xl font-bold shadow-sm transition btn-ripple text-base flex items-center gap-2">
+                           class="w-full sm:w-auto bg-white dark:bg-indigo-600 text-indigo-700 dark:text-white hover:bg-indigo-50 dark:hover:bg-indigo-500 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold shadow-sm transition btn-ripple text-sm sm:text-base flex items-center justify-center gap-2">
                             <i class="fa-solid fa-plus"></i> Create New Tour
                         </a>
                         <!-- Button triggers the JavaScript Join Code modal popup -->
                         <button type="button" id="openJoinTourBtn"
-                                class="bg-indigo-700/60 dark:bg-slate-800/80 hover:bg-indigo-700 dark:hover:bg-slate-800 border border-indigo-300/40 dark:border-slate-700 text-white px-6 py-3.5 rounded-xl font-bold shadow-sm transition btn-ripple text-base cursor-pointer flex items-center gap-2">
+                                class="w-full sm:w-auto bg-indigo-700/60 dark:bg-slate-800/80 hover:bg-indigo-700 dark:hover:bg-slate-800 border border-indigo-300/40 dark:border-slate-700 text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold shadow-sm transition btn-ripple text-sm sm:text-base cursor-pointer flex items-center justify-center gap-2">
                             <i class="fa-solid fa-key"></i> Join Tour by Code
                         </button>
                     </div>
@@ -222,7 +224,7 @@ Dashboard
             <!-- 2. Unread Notifications (from Django DB context)            -->
             <!-- 3. Offline Queue (from browser localStorage via JS)         -->
             <!-- ----------------------------------------------------------- -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 stagger" data-animate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10 stagger" data-animate>
                 
                 <!-- Card 1: Total Tours -->
                 <div class="bg-white dark:bg-[#131b2e] rounded-3xl shadow-sm border border-slate-200/80 dark:border-slate-800/80 p-7 hover:shadow-md transition stat-card-bounce card-tilt-3d relative overflow-hidden">

@@ -77,8 +77,11 @@ Settlement and balance — {{ tour.title }}
         </div>
     </aside>
 
+    <!-- Universal Mobile Topbar & Slide-Out Drawer -->
+    {% include 'includes/mobile_topbar.html' with active_page='tours' %}
+
     <!-- Main Content Area -->
-    <main class="flex-1 min-w-0 px-6 pt-8 pb-16 md:px-12 md:pt-10 md:pb-20 bg-white dark:bg-[#0b0f19]">
+    <main class="flex-1 min-w-0 px-4 sm:px-6 pt-16 md:pt-10 pb-16 md:px-12 md:pb-20 bg-white dark:bg-[#0b0f19]">
         <div class="max-w-4xl mx-auto">
 
             <div id="messageBox" class="mb-4"></div>

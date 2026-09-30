@@ -66,27 +66,30 @@ Notifications
         </div>
     </aside>
 
+    <!-- Universal Mobile Topbar & Slide-Out Drawer -->
+    {% include 'includes/mobile_topbar.html' with active_page='notifications' %}
+
     <!-- Main -->
-    <main class="flex-1 min-w-0 px-6 pt-4 pb-10 md:px-10 md:pt-5 md:pb-10 relative z-10">
+    <main class="flex-1 min-w-0 px-4 sm:px-6 pt-16 md:pt-5 pb-10 md:px-10 relative z-10">
         <div class="max-w-5xl mx-auto">
 
             <!-- Breadcrumb / Title -->
-            <div class="mb-6" data-animate>
-                <p class="text-sm text-slate-500 font-bold uppercase tracking-wider">
+            <div class="mb-4 sm:mb-6" data-animate>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
                     <a href="{{ dashboard_url }}" class="hover:text-blue-600">Dashboard</a>
                     <span class="mx-1.5 text-slate-400">/</span>
-                    <span class="text-indigo-600">Notifications</span>
+                    <span class="text-indigo-600 dark:text-indigo-400">Notifications</span>
                 </p>
-                <div class="mt-4 flex flex-wrap items-center justify-between gap-4">
+                <div class="mt-3 sm:mt-4 flex flex-wrap items-center justify-between gap-4">
                     <div class="welcome-slide" data-animate="left">
-                        <h1 class="text-4xl md:text-5xl font-black text-slate-800 text-shine flex items-center gap-4">
-                            <i class="fa-solid fa-bell text-indigo-600 icon-wobble"></i> Notifications
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 dark:text-white text-shine flex items-center gap-3 sm:gap-4">
+                            <i class="fa-solid fa-bell text-indigo-600 dark:text-indigo-400 icon-wobble"></i> Notifications
                         </h1>
-                        <p class="text-slate-500 mt-3 text-lg">Stay updated on tour activity, expense changes, and spending limit alerts.</p>
+                        <p class="text-slate-500 dark:text-slate-400 mt-2 sm:mt-3 text-sm sm:text-lg">Stay updated on tour activity, expense changes, and spending limit alerts.</p>
                     </div>
-                    <div class="flex gap-3 flex-wrap">
+                    <div class="flex gap-2 sm:gap-3 flex-wrap">
                         <button type="button" id="markAllReadBtn"
-                                class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-7 py-3.5 rounded-2xl font-black shadow-2xl shadow-indigo-500/40 btn-ripple btn-tilt-3d transition flex items-center gap-2">
+                                class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-2xl font-black shadow-2xl shadow-indigo-500/40 btn-ripple btn-tilt-3d transition flex items-center gap-2 text-xs sm:text-sm cursor-pointer">
                             <i class="fa-solid fa-check-double"></i> Mark all as read
                         </button>
                     </div>
@@ -94,19 +97,19 @@ Notifications
             </div>
 
             <!-- Summary banner -->
-            <div class="bg-gradient-to-r from-indigo-50 via-blue-50 to-rose-50 rounded-3xl p-8 border border-indigo-100 mb-10 flex flex-wrap items-center justify-between gap-4 card-tilt-3d relative overflow-hidden" data-animate>
+            <div class="bg-gradient-to-r from-indigo-50 via-blue-50 to-rose-50 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-slate-800/80 rounded-3xl p-5 sm:p-8 border border-indigo-100 dark:border-slate-700 mb-6 sm:mb-10 flex flex-wrap items-center justify-between gap-4 card-tilt-3d relative overflow-hidden" data-animate>
                 <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-rose-200/60 to-blue-200/60 blur-3xl pointer-events-none"></div>
                 <div class="relative z-10">
-                    <p class="text-slate-500 text-sm font-black uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-chart-line text-indigo-500"></i> Summary</p>
-                    <p class="text-4xl font-black text-slate-800 mt-2 stat-number flex items-center gap-4">
-                        <span id="summaryUnread" class="text-rose-600 badge-pulse inline-block px-4 py-2 bg-rose-100 rounded-2xl border-2 border-rose-200">0</span>
-                        <span class="text-2xl text-slate-400">·</span>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-rose-600">
+                    <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-black uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-chart-line text-indigo-500"></i> Summary</p>
+                    <p class="text-2xl sm:text-4xl font-black text-slate-800 dark:text-white mt-2 stat-number flex items-center gap-3 sm:gap-4">
+                        <span id="summaryUnread" class="text-rose-600 badge-pulse inline-block px-3 sm:px-4 py-1 sm:py-2 bg-rose-100 dark:bg-rose-950/60 rounded-2xl border-2 border-rose-200 dark:border-rose-800 text-base sm:text-2xl">0</span>
+                        <span class="text-xl sm:text-2xl text-slate-400">·</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-rose-600 dark:from-indigo-400 dark:to-rose-400 text-xl sm:text-3xl">
                             <span id="summaryTotal">0</span> total
                         </span>
                     </p>
                 </div>
-                <a href="{{ tour_list_url }}" class="bg-white hover:bg-slate-50 text-slate-700 border-2 border-slate-200 px-6 py-3.5 rounded-2xl font-black btn-ripple btn-tilt-3d transition relative z-10 flex items-center gap-2">
+                <a href="{{ tour_list_url }}" class="bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 border-2 border-slate-200 dark:border-slate-600 px-5 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl font-black btn-ripple btn-tilt-3d transition relative z-10 flex items-center gap-2 text-xs sm:text-sm">
                     <i class="fa-solid fa-suitcase-rolling"></i> Browse Tours
                 </a>
             </div>
