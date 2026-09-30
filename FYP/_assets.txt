@@ -1,0 +1,7 @@
+﻿    <link rel="icon" type="image/png" href="/static/img/logo-icon.png">
+    <link rel="apple-touch-icon" href="/static/img/logo-icon.png">
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+    <link rel="stylesheet" href="/static/css/animations.css?v=20260907_v1">
+    <link rel="stylesheet" href="/static/css/style.css?v=20260907_v1">
+<script src="/static/js/landing.js"></script>
+    <script src="/static/js/script.js"></script>
