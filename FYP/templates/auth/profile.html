@@ -60,10 +60,6 @@ My Profile
                 <p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Version</p>
                 <p class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-0.5">v1.0</p>
             </div>
-            <button type="button" class="theme-toggle w-11 h-11 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition cursor-pointer text-lg shrink-0 shadow-sm" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
-                <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span>
-                <span class="hidden dark:inline"><i class="fa-solid fa-sun text-amber-400"></i></span>
-            </button>
         </div>
     </aside>
 
@@ -78,13 +74,6 @@ My Profile
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-800 dark:text-white mt-1 text-shine">My Profile</h2>
             </div>
             <div class="flex items-center gap-2 sm:gap-4 flex-wrap">
-                <button type="button"
-                        class="theme-toggle hidden md:flex w-11 h-11 items-center justify-center rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition btn-ripple cursor-pointer text-lg"
-                        title="Toggle Light/Dark Theme"
-                        aria-label="Toggle Light/Dark Theme">
-                    <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span>
-                    <span class="hidden dark:inline"><i class="fa-solid fa-sun text-amber-400"></i></span>
-                </button>
                 <span class="font-black text-slate-700 dark:text-slate-200 text-sm sm:text-lg">{{ user.first_name }} {{ user.last_name }}</span>
                 <a href="/client/logout/" class="hidden sm:inline-flex bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl transition btn-ripple shadow-md font-bold text-xs sm:text-sm items-center gap-2">
                     <i class="fa-solid fa-right-from-bracket"></i> Logout
