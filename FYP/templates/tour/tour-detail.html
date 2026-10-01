@@ -54,10 +54,16 @@ Tour Details
             </a>
         </nav>
 
-        <div class="p-4 border-t border-slate-100 dark:border-slate-800 relative z-10 flex items-center justify-between gap-2">
-            <div class="p-2.5 px-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex-1">
-                <p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Version</p>
-                <p class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-0.5">v1.0</p>
+        <div class="p-4 border-t border-slate-100 dark:border-slate-800 relative z-10 space-y-2">
+            <div class="p-2.5 px-3 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/50">
+                <p class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-regular fa-calendar-days"></i> Tour Expedition
+                </p>
+                <p class="text-xs font-extrabold text-slate-800 dark:text-slate-100 mt-0.5">16 Aug 2027 – 24 Aug 2027</p>
+            </div>
+            <div class="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 px-1">
+                <span>Version</span>
+                <span class="font-bold text-slate-600 dark:text-slate-300">v1.0</span>
             </div>
         </div>
     </aside>
@@ -107,66 +113,66 @@ Tour Details
                 </div>
             </div>
 
-            <!-- Stats row (2 cols on sm/laptop, 4 cols on wide 2xl displays) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-4 sm:gap-6 mb-8">
+            <!-- Stats row (2 cols on mobile/tablet, 4 cols on wide displays) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-8">
                 <!-- Card 1: Budget -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xs hover:shadow-md border border-slate-200/90 dark:border-slate-700/80 p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between h-full min-w-0">
-                    <div class="flex items-center justify-between gap-3 mb-4">
-                        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold uppercase tracking-wider truncate">Budget</p>
-                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-100 dark:bg-slate-700/60 flex items-center justify-center text-slate-600 dark:text-slate-300 text-lg sm:text-xl shrink-0 shadow-xs">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl shadow-xs hover:shadow-md border border-slate-200/90 dark:border-slate-700/80 p-4 sm:p-6 transition-all duration-200 flex flex-col justify-between h-full min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-2 sm:mb-4">
+                        <p class="text-slate-500 dark:text-slate-400 text-[11px] sm:text-sm font-bold uppercase tracking-wider truncate">Budget</p>
+                        <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-slate-100 dark:bg-slate-700/60 flex items-center justify-center text-slate-600 dark:text-slate-300 text-sm sm:text-xl shrink-0 shadow-xs">
                             <i class="fa-solid fa-wallet"></i>
                         </div>
                     </div>
                     <div class="min-w-0">
-                        <p id="statBudget" class="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 dark:text-white tracking-tight truncate whitespace-nowrap" title="Budget">Rs. 0.00</p>
+                        <p id="statBudget" class="text-base sm:text-2xl 2xl:text-3xl font-black text-slate-900 dark:text-white tracking-tight truncate whitespace-nowrap" title="Budget">Rs. 0.00</p>
                     </div>
                 </div>
 
                 <!-- Card 2: Spent -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xs hover:shadow-md border border-slate-200/90 dark:border-slate-700/80 p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between h-full min-w-0">
-                    <div class="flex items-center justify-between gap-3 mb-4">
-                        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold uppercase tracking-wider truncate">Spent</p>
-                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-xs">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl shadow-xs hover:shadow-md border border-slate-200/90 dark:border-slate-700/80 p-4 sm:p-6 transition-all duration-200 flex flex-col justify-between h-full min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-2 sm:mb-4">
+                        <p class="text-slate-500 dark:text-slate-400 text-[11px] sm:text-sm font-bold uppercase tracking-wider truncate">Spent</p>
+                        <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm sm:text-xl shrink-0 shadow-xs">
                             <i class="fa-solid fa-chart-column"></i>
                         </div>
                     </div>
                     <div class="min-w-0">
-                        <p id="statSpent" class="text-xl sm:text-2xl 2xl:text-3xl font-black text-blue-600 dark:text-blue-400 tracking-tight truncate whitespace-nowrap" title="Spent">Rs. 0.00</p>
+                        <p id="statSpent" class="text-base sm:text-2xl 2xl:text-3xl font-black text-blue-600 dark:text-blue-400 tracking-tight truncate whitespace-nowrap" title="Spent">Rs. 0.00</p>
                     </div>
                 </div>
 
                 <!-- Card 3: Remaining -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xs hover:shadow-md border border-slate-200/90 dark:border-slate-700/80 p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between h-full min-w-0">
-                    <div class="flex items-center justify-between gap-3 mb-4">
-                        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold uppercase tracking-wider truncate">Remaining</p>
-                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-xs">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl shadow-xs hover:shadow-md border border-slate-200/90 dark:border-slate-700/80 p-4 sm:p-6 transition-all duration-200 flex flex-col justify-between h-full min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-2 sm:mb-4">
+                        <p class="text-slate-500 dark:text-slate-400 text-[11px] sm:text-sm font-bold uppercase tracking-wider truncate">Remaining</p>
+                        <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-sm sm:text-xl shrink-0 shadow-xs">
                             <i class="fa-solid fa-circle-check"></i>
                         </div>
                     </div>
                     <div class="min-w-0">
-                        <p id="statRemaining" class="text-xl sm:text-2xl 2xl:text-3xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight truncate whitespace-nowrap" title="Remaining">Rs. 0.00</p>
+                        <p id="statRemaining" class="text-base sm:text-2xl 2xl:text-3xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight truncate whitespace-nowrap" title="Remaining">Rs. 0.00</p>
                     </div>
                 </div>
 
                 <!-- Card 4: Members -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xs hover:shadow-md border border-slate-200/90 dark:border-slate-700/80 p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between h-full min-w-0">
-                    <div class="flex items-center justify-between gap-3 mb-4">
-                        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold uppercase tracking-wider truncate">Members</p>
-                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-xs">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl shadow-xs hover:shadow-md border border-slate-200/90 dark:border-slate-700/80 p-4 sm:p-6 transition-all duration-200 flex flex-col justify-between h-full min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-2 sm:mb-4">
+                        <p class="text-slate-500 dark:text-slate-400 text-[11px] sm:text-sm font-bold uppercase tracking-wider truncate">Members</p>
+                        <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-sm sm:text-xl shrink-0 shadow-xs">
                             <i class="fa-solid fa-users"></i>
                         </div>
                     </div>
                     <div class="min-w-0">
-                        <p id="statMembers" class="text-xl sm:text-2xl 2xl:text-3xl font-black text-purple-600 dark:text-purple-400 tracking-tight truncate whitespace-nowrap" title="Members">0</p>
+                        <p id="statMembers" class="text-base sm:text-2xl 2xl:text-3xl font-black text-purple-600 dark:text-purple-400 tracking-tight truncate whitespace-nowrap" title="Members">0</p>
                     </div>
                 </div>
             </div>
 
             <!-- Tour Join Code (OTP) Shared Alert Banner -->
             <div id="tourOtpAlertBanner"
-                class="mb-6 p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-emerald-50 via-teal-50/50 to-emerald-50 dark:from-emerald-950/40 dark:via-slate-800 dark:to-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div class="flex items-start sm:items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm shadow-emerald-500/20">
+                class="mb-6 p-4 sm:p-6 rounded-3xl bg-gradient-to-r from-emerald-50 via-teal-50/50 to-emerald-50 dark:from-emerald-950/40 dark:via-slate-800 dark:to-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="flex items-start sm:items-center gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-sm shadow-emerald-500/20">
                         <i class="fa-solid fa-key"></i>
                     </div>
                     <div>
@@ -180,19 +186,19 @@ Tour Details
                     </div>
                 </div>
 
-                <div class="flex items-center gap-3 w-full md:w-auto flex-wrap sm:flex-nowrap shrink-0">
+                <div class="flex items-center gap-2 sm:gap-3 w-full md:w-auto flex-wrap sm:flex-nowrap shrink-0">
                     <!-- OTP Display Input (kept compatible with inlineJoinLinkInput id) -->
-                    <div class="relative flex-1 sm:flex-initial">
+                    <div class="relative flex-1 sm:flex-initial w-full sm:w-auto">
                         <input type="text" id="inlineJoinLinkInput" readonly value="{{ join_token }}"
                             data-token="{{ join_token }}"
-                            class="bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 rounded-2xl px-5 py-3 text-xl sm:text-2xl font-mono font-black text-emerald-700 dark:text-emerald-400 text-center tracking-widest shadow-xs select-all focus:outline-none focus:ring-2 focus:ring-emerald-500/30 w-36 sm:w-40"
+                            class="bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 rounded-2xl px-4 sm:px-5 py-2.5 sm:py-3 text-lg sm:text-2xl font-mono font-black text-emerald-700 dark:text-emerald-400 text-center tracking-widest shadow-xs select-all focus:outline-none focus:ring-2 focus:ring-emerald-500/30 w-full sm:w-36 md:w-40"
                             placeholder="------" />
                     </div>
 
                     <!-- Copy / Open Modal Button -->
                     <button id="inlineCopyJoinLinkBtn" type="button" data-token="{{ join_token }}"
                         onclick="copyTourCodeDirect('{{ join_token }}', this); return false;"
-                        class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold py-3.5 px-5 rounded-2xl transition shadow-xs flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap">
+                        class="flex-1 sm:flex-initial bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold py-3 sm:py-3.5 px-4 sm:px-5 rounded-2xl transition shadow-xs flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer whitespace-nowrap">
                         <i class="fa-solid fa-copy"></i>
                         <span id="inlineCopyBtnText">Copy Code</span>
                     </button>
@@ -200,10 +206,10 @@ Tour Details
                     <!-- WhatsApp Share Button -->
                     <a id="inlineWhatsappShareBtn" href="{{ whatsapp_share_url }}" target="_blank"
                         rel="noopener noreferrer"
-                        class="bg-white dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-slate-700 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 text-sm font-bold py-3.5 px-4 rounded-2xl transition shadow-xs flex items-center justify-center gap-2 text-center cursor-pointer whitespace-nowrap"
+                        class="flex-1 sm:flex-initial bg-white dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-slate-700 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 text-xs sm:text-sm font-bold py-3 sm:py-3.5 px-3 sm:px-4 rounded-2xl transition shadow-xs flex items-center justify-center gap-1.5 sm:gap-2 text-center cursor-pointer whitespace-nowrap"
                         title="Share on WhatsApp">
-                        <i class="fa-brands fa-whatsapp text-lg text-emerald-600 dark:text-emerald-400"></i>
-                        <span class="hidden sm:inline">WhatsApp</span>
+                        <i class="fa-brands fa-whatsapp text-base sm:text-lg text-emerald-600 dark:text-emerald-400"></i>
+                        <span>WhatsApp</span>
                     </a>
                 </div>
             </div>

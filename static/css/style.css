@@ -694,3 +694,116 @@ html:not(.dark) .theme-toggle .dark\:hidden,
 html:not(.dark) #themeToggleBtn .dark\:hidden {
   display: inline-flex !important;
 }
+
+/* ==========================================================
+   UNIVERSAL RESPONSIVENESS & MOBILE-FIRST OPTIMIZATIONS
+   ========================================================== */
+
+/* 1. Global Box Sizing & Horizontal Overflow Prevention */
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. Media & Image Fluidity */
+img, svg, video, canvas, audio, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 3. Text Breakage & Hyphenation to prevent text blowing out containers */
+h1, h2, h3, h4, h5, h6, p, span, a, td, th, li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* 4. Touch-Friendly Scroll Areas */
+.overflow-x-auto,
+.overflow-y-auto,
+.custom-scrollbar {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* 5. Mobile Modals Responsive Layout */
+@media (max-width: 640px) {
+  .modal-pop-in,
+  #expenseModalPanel,
+  #addMemberModal .modal-pop-in,
+  #editMemberModal .modal-pop-in,
+  #joinCodeModal .modal-pop-in {
+    max-height: calc(100vh - 2rem) !important;
+    max-width: calc(100vw - 1.5rem) !important;
+    width: 100% !important;
+    margin: auto !important;
+    border-radius: 1.25rem !important;
+  }
+
+  .modal-pop-in .p-8,
+  #expenseModalPanel .p-6,
+  #addMemberModal .p-8 {
+    padding: 1.25rem !important;
+  }
+
+  .modal-pop-in .px-8.py-6,
+  #expenseModalPanel .p-6.border-b {
+    padding: 1rem 1.25rem !important;
+  }
+
+  /* Dropdowns fitting small screens */
+  #bellDropdown,
+  #profileDropdown,
+  #expenseTitleDropdown {
+    max-width: calc(100vw - 2rem) !important;
+    width: calc(100vw - 2rem) !important;
+    right: 0 !important;
+    left: auto !important;
+  }
+}
+
+/* 6. Mobile Tables Scroll Indicator & Touch Friendly Layout */
+@media (max-width: 768px) {
+  .overflow-x-auto table {
+    min-width: 600px;
+  }
+  
+  /* Touch tap targets */
+  button, 
+  a.btn-ripple,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 38px;
+  }
+}
+
+/* 7. Extra Small Devices (<= 380px) */
+@media (max-width: 380px) {
+  .text-4xl, .text-5xl, .text-6xl, .text-7xl {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .p-6, .p-7, .p-8 {
+    padding: 1rem !important;
+  }
+}
+

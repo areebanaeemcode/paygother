@@ -216,12 +216,12 @@
                 }
             } else {
                 buttonHtml = (
-                    '<div class="flex items-center gap-2">' +
-                        '<button type="button" class="stripe-pay-btn inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#635bff] hover:bg-[#5346e0] active:bg-[#4335c0] transition cursor-pointer shadow-xs" data-tx-key="' + txKey + '" data-from-name="' + fromName.replace(/"/g, '&quot;') + '" data-to-name="' + toName.replace(/"/g, '&quot;') + '" data-amount="' + t.amount + '" title="Pay directly via official Stripe checkout">' +
+                    '<div class="flex items-center gap-2 flex-wrap sm:flex-nowrap">' +
+                        '<button type="button" class="stripe-pay-btn inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#635bff] hover:bg-[#5346e0] active:bg-[#4335c0] transition cursor-pointer shadow-xs" data-tx-key="' + txKey + '" data-from-name="' + fromName.replace(/"/g, '&quot;') + '" data-to-name="' + toName.replace(/"/g, '&quot;') + '" data-amount="' + t.amount + '" title="Pay directly via official Stripe checkout">' +
                             '<i class="fa-brands fa-stripe text-lg"></i>' +
                             '<span>Pay with Stripe</span>' +
                         '</button>' +
-                        '<button type="button" class="mark-paid-btn inline-flex items-center gap-1.5 px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-xl text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 transition cursor-pointer shadow-xs" data-tx-key="' + txKey + '" data-from-id="' + fromId + '" data-to-id="' + toId + '" data-from-name="' + fromName.replace(/"/g, '&quot;') + '" data-to-name="' + toName.replace(/"/g, '&quot;') + '" data-amount="' + t.amount + '" title="Mark this transfer as paid offline">' +
+                        '<button type="button" class="mark-paid-btn inline-flex items-center justify-center gap-1.5 px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-xl text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 transition cursor-pointer shadow-xs" data-tx-key="' + txKey + '" data-from-id="' + fromId + '" data-to-id="' + toId + '" data-from-name="' + fromName.replace(/"/g, '&quot;') + '" data-to-name="' + toName.replace(/"/g, '&quot;') + '" data-amount="' + t.amount + '" title="Mark this transfer as paid offline">' +
                             '<span>Mark paid</span>' +
                         '</button>' +
                     '</div>'
@@ -229,21 +229,21 @@
             }
 
             html += (
-                '<div class="' + rowBorderClass + ' border rounded-2xl p-4 sm:p-5 flex items-center justify-between shadow-none transition gap-4">' +
-                    '<div class="flex items-center gap-2.5 sm:gap-3.5 min-w-0 flex-wrap sm:flex-nowrap">' +
+                '<div class="' + rowBorderClass + ' border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between shadow-none transition gap-3 sm:gap-4">' +
+                    '<div class="flex items-center gap-2 sm:gap-3.5 min-w-0 flex-wrap sm:flex-nowrap">' +
                         '<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full ' + fromColor + ' font-bold text-sm flex items-center justify-center shrink-0 shadow-xs">' +
                             fromInitial +
                         '</div>' +
-                        '<span class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-100 truncate max-w-[140px] sm:max-w-none">' + fromName + '</span>' +
-                        '<span class="text-slate-400 mx-1.5 text-xs font-semibold uppercase tracking-wider shrink-0">to</span>' +
+                        '<span class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-100 truncate max-w-[130px] sm:max-w-none">' + fromName + '</span>' +
+                        '<span class="text-slate-400 mx-1 text-xs font-semibold uppercase tracking-wider shrink-0">to</span>' +
                         '<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full ' + toColor + ' font-bold text-sm flex items-center justify-center shrink-0 shadow-xs">' +
                             toInitial +
                         '</div>' +
-                        '<span class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-100 truncate max-w-[140px] sm:max-w-none">' + toName + '</span>' +
+                        '<span class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-100 truncate max-w-[130px] sm:max-w-none">' + toName + '</span>' +
                         (settledBadge ? '<span class="ml-1 shrink-0">' + settledBadge + '</span>' : '') +
                     '</div>' +
-                    '<div class="flex items-center gap-3 sm:gap-6 shrink-0">' +
-                        '<span class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">' + fmtMoney(t.amount) + '</span>' +
+                    '<div class="flex items-center justify-between sm:justify-end gap-3 sm:gap-6 w-full sm:w-auto">' +
+                        '<span class="text-base sm:text-lg font-bold text-slate-900 dark:text-white shrink-0">' + fmtMoney(t.amount) + '</span>' +
                         buttonHtml +
                     '</div>' +
                 '</div>'

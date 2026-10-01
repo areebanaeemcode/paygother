@@ -92,9 +92,13 @@
                     m.name.charAt(0).toUpperCase() +
                 '</div>' +
                 '<input type="text" value="' + m.name + '" data-idx="' + idx + '" class="demo-name-input flex-1 min-w-0 bg-transparent text-sm font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 rounded px-1.5 py-0.5" />' +
-                '<div class="relative w-28 shrink-0">' +
-                    '<span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">Rs.</span>' +
-                    '<input type="number" step="100" min="0" value="' + m.paid + '" data-idx="' + idx + '" class="demo-paid-input w-full pl-8 pr-2 py-1 text-sm font-bold text-right text-slate-900 dark:text-white bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />' +
+                '<div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ' + m.color + '">' +
+                    m.name.charAt(0).toUpperCase() +
+                '</div>' +
+                '<input type="text" value="' + m.name + '" data-idx="' + idx + '" class="demo-name-input flex-1 min-w-0 bg-transparent text-sm font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 rounded px-1.5 py-0.5" />' +
+                '<div class="relative w-24 sm:w-28 shrink-0">' +
+                    '<span class="absolute left-2 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">Rs.</span>' +
+                    '<input type="number" step="100" min="0" value="' + m.paid + '" data-idx="' + idx + '" class="demo-paid-input w-full pl-7 sm:pl-8 pr-1.5 sm:pr-2 py-1 text-xs sm:text-sm font-bold text-right text-slate-900 dark:text-white bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />' +
                 '</div>' +
                 (demoMembers.length > 2 ? '<button type="button" data-idx="' + idx + '" class="demo-remove-btn text-slate-400 hover:text-rose-500 p-1 font-bold text-sm cursor-pointer" title="Remove member"><i class="fa-solid fa-xmark"></i></button>' : '');
 
@@ -156,13 +160,13 @@
         var html = '';
         res.transfers.forEach(function (t) {
             html +=
-                '<div class="flex items-center justify-between p-3.5 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-md transition">' +
-                    '<div class="flex items-center gap-2 min-w-0">' +
-                        '<span class="text-sm font-bold text-slate-800 dark:text-slate-100 truncate max-w-[110px] sm:max-w-[140px]">' + t.from + '</span>' +
+                '<div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-3.5 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-md transition gap-2">' +
+                    '<div class="flex items-center gap-2 flex-wrap min-w-0">' +
+                        '<span class="text-sm font-bold text-slate-800 dark:text-slate-100 truncate max-w-[120px] sm:max-w-[150px]">' + t.from + '</span>' +
                         '<span class="text-indigo-600 dark:text-indigo-400 font-extrabold text-xs px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/60 shrink-0">pays to</span>' +
-                        '<span class="text-sm font-bold text-slate-800 dark:text-slate-100 truncate max-w-[110px] sm:max-w-[140px]">' + t.to + '</span>' +
+                        '<span class="text-sm font-bold text-slate-800 dark:text-slate-100 truncate max-w-[120px] sm:max-w-[150px]">' + t.to + '</span>' +
                     '</div>' +
-                    '<span class="font-black text-sm text-emerald-600 dark:text-emerald-400 shrink-0 ml-2">' + formatMoney(t.amount) + '</span>' +
+                    '<span class="font-black text-sm text-emerald-600 dark:text-emerald-400 shrink-0 self-end sm:self-auto">' + formatMoney(t.amount) + '</span>' +
                 '</div>';
         });
 

@@ -48,31 +48,32 @@ Pay-Together — Smart Group Tour Expense Sharing & Settlement Platform
 
                 {% if is_authenticated %}
                 <a href="{{ dashboard_url|default:'/client/dashboard/' }}"
-                    class="inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-600/30 transition transform hover:-translate-y-0.5">
+                    class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-600/30 transition transform hover:-translate-y-0.5">
                     <i class="fa-solid fa-bolt"></i>
                     <span>Dashboard</span>
-                    <span class="text-xs opacity-80 hidden sm:inline">({{ user_name }})</span>
+                    <span class="text-xs opacity-80 hidden md:inline">({{ user_name }})</span>
                 </a>
                 <a href="/client/logout/"
-                    class="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-rose-600 dark:text-rose-400 font-bold text-sm transition"
+                    class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-rose-600 dark:text-rose-400 font-bold text-sm transition"
                     title="Log out to landing page">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>
                 {% else %}
                 <a href="/login/"
-                    class="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-indigo-500 text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 font-bold text-sm transition">
+                    class="hidden sm:inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-indigo-500 text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 font-bold text-sm transition">
                     Login
                 </a>
                 <a href="/register/"
-                    class="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-600/30 transition transform hover:-translate-y-0.5">
+                    class="hidden sm:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-600/30 transition transform hover:-translate-y-0.5">
                     <span>Sign Up</span>
                 </a>
                 {% endif %}
 
                 <!-- Mobile Menu Button -->
                 <button id="mobileMenuBtn" type="button"
-                    class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-lg font-bold cursor-pointer">
+                    class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-lg font-bold cursor-pointer"
+                    aria-label="Toggle navigation menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -163,20 +164,20 @@ Pay-Together — Smart Group Tour Expense Sharing & Settlement Platform
             <!-- ============================================================= -->
             <div class="mt-14 max-w-4xl mx-auto">
                 <div class="relative rounded-3xl p-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-2xl shadow-indigo-500/10">
-                    <div class="bg-white dark:bg-slate-900 rounded-[22px] p-6 sm:p-8 border border-slate-200/50 dark:border-slate-800">
+                    <div class="bg-white dark:bg-slate-900 rounded-[22px] p-5 sm:p-8 border border-slate-200/50 dark:border-slate-800">
                         
                         <!-- Mockup Header -->
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
                             <div>
-                                <div class="flex items-center gap-2">
+                                <div class="flex items-center gap-2 flex-wrap">
                                     <span class="text-indigo-600 text-lg"><i class="fa-solid fa-mountain-sun"></i></span>
-                                    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Hunza & Skardu Expedition</h3>
+                                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">Hunza & Skardu Expedition</h3>
                                     <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Ongoing</span>
                                 </div>
                                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">Token: <strong class="tracking-widest text-indigo-600 dark:text-indigo-400 font-mono">HNZ420</strong> · 5 Members</p>
                             </div>
                             <div class="flex items-center gap-3">
-                                <div class="text-right">
+                                <div class="text-left sm:text-right">
                                     <p class="text-[10px] font-black uppercase text-slate-400 tracking-wider">Total Spent</p>
                                     <p class="text-2xl font-black text-indigo-600 dark:text-indigo-400">Rs. 95,000</p>
                                 </div>
@@ -184,53 +185,53 @@ Pay-Together — Smart Group Tour Expense Sharing & Settlement Platform
                         </div>
 
                         <!-- Mockup Stats Grid -->
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 my-6">
-                            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
-                                <p class="text-[10px] uppercase font-bold text-slate-400">Budget</p>
-                                <p class="text-base font-extrabold text-slate-900 dark:text-white mt-0.5">Rs. 150,000</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 my-6">
+                            <div class="p-3 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 min-w-0">
+                                <p class="text-[10px] uppercase font-bold text-slate-400 truncate">Budget</p>
+                                <p class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white mt-0.5 truncate">Rs. 150,000</p>
                             </div>
-                            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
-                                <p class="text-[10px] uppercase font-bold text-slate-400">Fair Share</p>
-                                <p class="text-base font-extrabold text-blue-600 dark:text-blue-400 mt-0.5">Rs. 19,000 <span class="text-xs font-medium text-slate-400">/pp</span></p>
+                            <div class="p-3 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 min-w-0">
+                                <p class="text-[10px] uppercase font-bold text-slate-400 truncate">Fair Share</p>
+                                <p class="text-sm sm:text-base font-extrabold text-blue-600 dark:text-blue-400 mt-0.5 truncate">Rs. 19k <span class="text-xs font-medium text-slate-400">/pp</span></p>
                             </div>
-                            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
-                                <p class="text-[10px] uppercase font-bold text-slate-400">Budget Left</p>
-                                <p class="text-base font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5">Rs. 55,000</p>
+                            <div class="p-3 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 min-w-0">
+                                <p class="text-[10px] uppercase font-bold text-slate-400 truncate">Budget Left</p>
+                                <p class="text-sm sm:text-base font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 truncate">Rs. 55,000</p>
                             </div>
-                            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
-                                <p class="text-[10px] uppercase font-bold text-slate-400">Suggested Transfers</p>
-                                <p class="text-base font-extrabold text-purple-600 dark:text-purple-400 mt-0.5">Only 3</p>
+                            <div class="p-3 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 min-w-0">
+                                <p class="text-[10px] uppercase font-bold text-slate-400 truncate">Transfers</p>
+                                <p class="text-sm sm:text-base font-extrabold text-purple-600 dark:text-purple-400 mt-0.5 truncate">Only 3</p>
                             </div>
                         </div>
 
                         <!-- Suggested Transactions Preview -->
                         <div class="rounded-2xl bg-indigo-50/60 dark:bg-slate-800/90 border border-indigo-100 dark:border-slate-700 p-4">
-                            <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center justify-between mb-3 flex-wrap gap-1">
                                 <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
                                     Suggested Optimal Settlement
                                 </span>
                                 <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400">Minimized from 10 transfers</span>
                             </div>
                             <div class="space-y-2">
-                                <div class="flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-xs sm:text-sm font-semibold">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-6 h-6 rounded-md bg-rose-100 text-rose-700 font-bold flex items-center justify-center text-xs">U</span>
-                                        <span>Usman</span>
-                                        <span class="text-indigo-500 font-black">pays to</span>
-                                        <span class="w-6 h-6 rounded-md bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-xs">A</span>
-                                        <span>Ali (Petrol Payer)</span>
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-xs sm:text-sm font-semibold gap-1.5 sm:gap-2">
+                                    <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap min-w-0">
+                                        <span class="w-6 h-6 rounded-md bg-rose-100 text-rose-700 font-bold flex items-center justify-center text-xs shrink-0">U</span>
+                                        <span class="truncate">Usman</span>
+                                        <span class="text-indigo-500 font-black text-xs">pays to</span>
+                                        <span class="w-6 h-6 rounded-md bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-xs shrink-0">A</span>
+                                        <span class="truncate">Ali (Petrol Payer)</span>
                                     </div>
-                                    <span class="font-black text-emerald-600 dark:text-emerald-400">Rs. 14,000</span>
+                                    <span class="font-black text-emerald-600 dark:text-emerald-400 shrink-0">Rs. 14,000</span>
                                 </div>
-                                <div class="flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-xs sm:text-sm font-semibold">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-xs">B</span>
-                                        <span>Bilal</span>
-                                        <span class="text-indigo-500 font-black">pays to</span>
-                                        <span class="w-6 h-6 rounded-md bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center text-xs">S</span>
-                                        <span>Sara (Hotel Payer)</span>
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-xs sm:text-sm font-semibold gap-1.5 sm:gap-2">
+                                    <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap min-w-0">
+                                        <span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-xs shrink-0">B</span>
+                                        <span class="truncate">Bilal</span>
+                                        <span class="text-indigo-500 font-black text-xs">pays to</span>
+                                        <span class="w-6 h-6 rounded-md bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center text-xs shrink-0">S</span>
+                                        <span class="truncate">Sara (Hotel Payer)</span>
                                     </div>
-                                    <span class="font-black text-emerald-600 dark:text-emerald-400">Rs. 7,000</span>
+                                    <span class="font-black text-emerald-600 dark:text-emerald-400 shrink-0">Rs. 7,000</span>
                                 </div>
                             </div>
                         </div>
