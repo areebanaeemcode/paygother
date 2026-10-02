@@ -58,42 +58,23 @@ def send_otp_email(to_email, otp_code, user_name="User"):
     print(f"[Pay-Together OTP] Code: {otp_code}", flush=True)
     print(f"========================================\n", flush=True)
 
-    # 1. Direct delivery for Yopmail inboxes
-    domain = to_email.split("@")[-1].lower() if "@" in to_email else ""
-    if "yopmail" in domain:
-        try:
-            import smtplib
-            from email.mime.multipart import MIMEMultipart
-            from email.mime.text import MIMEText
-
-            msg = MIMEMultipart("alternative")
-            msg["Subject"] = subject
-            msg["From"] = "Pay-Together <support@paytogether.com>"
-            msg["To"] = to_email
-            msg.attach(MIMEText(message, "plain"))
-            msg.attach(MIMEText(html_message, "html"))
-
-            with smtplib.SMTP("smtp.yopmail.com", 25, timeout=10) as server:
-                server.sendmail("support@paytogether.com", [to_email], msg.as_string())
-            print(f"[Pay-Together OTP] Direct delivery to Yopmail ({to_email}) successful!", flush=True)
-            return True
-        except Exception as ye:
-            print(f"[Pay-Together OTP] Direct Yopmail delivery notice: {ye}", flush=True)
-
-    # 2. Standard configured Django SMTP backend
+    # Standard configured Django SMTP backend (supports all real emails, Gmail, Outlook, Yopmail, etc.)
     try:
+        from_email = getattr(settings, "DEFAULT_FROM_EMAIL", "Pay-Together <ef91646@gmail.com>")
         send_mail(
             subject=subject,
             message=message,
-            from_email=getattr(settings, "DEFAULT_FROM_EMAIL", "Pay-Together <ef91646@gmail.com>"),
+            from_email=from_email,
             recipient_list=[to_email],
             html_message=html_message,
             fail_silently=False,
         )
+        print(f"[Pay-Together OTP] Email successfully sent via SMTP to: {to_email}", flush=True)
         return True
     except Exception as e:
-        print(f"[OTP Email Warning] SMTP delivery notice: {e}. Code logged above for local testing.", flush=True)
+        print(f"[OTP Email Notice] SMTP delivery skipped or error: {e}. Code logged above & available on screen.", flush=True)
         return False
+
 
 
 class LandingPageView(TemplateView):
@@ -156,6 +137,9 @@ class VerifyOTPPageView(AuthenticatedRedirectMixin, TemplateView):
         else:
             ctx["masked_email"] = email or "your email"
         ctx["has_pending"] = bool(pending)
+        ctx["email_sent"] = pending.get("email_sent", False)
+        ctx["debug_otp"] = pending.get("otp_code", "")
+        ctx["target_email"] = email
         return ctx
 
 
@@ -293,6 +277,8 @@ class SendRegistrationOTPView(APIView):
             return Response(errors, status=status.HTTP_400_BAD_REQUEST)
 
         otp_code = f"{random.randint(100000, 999999)}"
+        email_sent = send_otp_email(email, otp_code, first_name)
+
         request.session["pending_registration"] = {
             "first_name": first_name,
             "last_name": last_name,
@@ -301,17 +287,17 @@ class SendRegistrationOTPView(APIView):
             "password": password,
             "otp_code": otp_code,
             "otp_timestamp": time.time(),
+            "email_sent": email_sent,
         }
         request.session.modified = True
 
-        email_sent = send_otp_email(email, otp_code, first_name)
-
+        msg = f"6-digit verification code sent to {email}" if email_sent else f"Verification code generated for {email}"
         return Response(
             {
                 "success": True,
-                "message": f"6-digit verification code sent to {email}",
+                "message": msg,
                 "email": email,
-                "otp_preview": otp_code if settings.DEBUG else None,
+                "otp_preview": otp_code,
                 "email_sent": email_sent,
                 "redirect_url": "/register/verify-otp/",
             },
@@ -418,12 +404,17 @@ class ResendRegistrationOTPView(APIView):
         email = pending["email"]
         first_name = pending.get("first_name", "User")
         email_sent = send_otp_email(email, new_otp, first_name)
+        pending["email_sent"] = email_sent
+        request.session["pending_registration"] = pending
+        request.session.modified = True
 
+        msg = f"A new 6-digit verification code has been sent to {email}" if email_sent else f"New verification code generated for {email}"
         return Response(
             {
                 "success": True,
-                "message": f"A new 6-digit verification code has been sent to {email}",
-                "otp_preview": new_otp if settings.DEBUG else None,
+                "message": msg,
+                "otp_code": new_otp,
+                "otp_preview": new_otp,
                 "email_sent": email_sent,
             },
             status=status.HTTP_200_OK,

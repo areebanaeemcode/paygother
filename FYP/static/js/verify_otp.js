@@ -68,6 +68,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startTimer();
 
+    // ── Auto-Fill Handler ──────────────────────────────────
+    const autoFillBtn = document.getElementById("autoFillBtn");
+    const debugOtpValEl = document.getElementById("debugOtpValue");
+    if (autoFillBtn && debugOtpValEl) {
+        autoFillBtn.addEventListener("click", () => {
+            const raw = debugOtpValEl.textContent.trim().replace(/\D/g, "");
+            if (raw.length === 6) {
+                otpBoxes.forEach((box, i) => {
+                    box.value = raw[i] || "";
+                });
+                otpBoxes[5].focus();
+                showMsg("Code auto-filled! Click 'Verify & Complete Registration' below.", "green");
+            }
+        });
+    }
+
     // ── 3. Resend OTP ──────────────────────────────────────
     resendBtn.addEventListener("click", async () => {
         resendBtn.disabled = true;
@@ -84,6 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 showMsg(data.message || "New OTP has been sent to your email!", "green");
                 otpBoxes.forEach(b => b.value = "");
                 otpBoxes[0].focus();
+                if ((data.otp_code || data.otp_preview) && debugOtpValEl) {
+                    debugOtpValEl.textContent = data.otp_code || data.otp_preview;
+                }
                 startTimer();
             } else {
                 showMsg(data.detail || "Could not resend OTP. Please try again.", "red");

@@ -113,12 +113,19 @@ pay-together/
 
 ## ⚙️ Installation & Local Setup
 
-Follow these steps to run Pay-Together locally:
+### ⚡ Quick Start (If downloaded as ZIP from GitHub)
+If you downloaded this project as a ZIP archive:
+1. Extract the ZIP folder.
+2. Double-click **`RUN_APP.bat`** in the main folder.
+   - It will automatically set up the Python environment, check migrations, launch the server, and open the app in your browser!
 
-### 1. Clone the Repository
+---
+
+### Manual Setup & Installation:
+
+### 1. Open Terminal in FYP Directory
 ```bash
-git clone https://github.com/MuzammalNazeer/pay-together.git
-cd pay-together/FYP
+cd FYP
 ```
 
 ### 2. Create and Activate Virtual Environment

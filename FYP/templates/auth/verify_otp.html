@@ -30,10 +30,37 @@ Verify OTP — Pay-Together
         </p>
 
         <!-- Email Badge -->
-        <div class="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-6 max-w-full truncate">
+        <div class="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 max-w-full truncate">
             <i class="fa-solid fa-envelope text-[#2b1816] dark:text-amber-400"></i>
             <span id="targetEmailLabel" class="truncate">OTP sent to: <strong class="text-slate-900 dark:text-white">{{ masked_email }}</strong></span>
         </div>
+
+        {% if email_sent %}
+        <div class="mb-4 px-3.5 py-2 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl text-emerald-800 dark:text-emerald-300 text-xs font-medium flex items-center justify-center gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-600"></i>
+            <span>Real email delivered! Check your Inbox, Spam, or Yopmail.</span>
+        </div>
+        {% endif %}
+
+        {% if debug_otp %}
+        <!-- Quick Access Card (Ensures zip download from GitHub is 100% working out-of-the-box) -->
+        <div id="demoOtpCard" class="mb-4 sm:mb-5 p-3.5 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-slate-800/80 dark:to-slate-800/50 border border-amber-300/80 dark:border-amber-500/30 rounded-2xl text-left shadow-sm">
+            <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <span class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-800 dark:text-amber-300 flex items-center justify-center font-bold text-sm shrink-0">
+                        <i class="fa-solid fa-key"></i>
+                    </span>
+                    <div class="min-w-0">
+                        <p class="text-[11px] font-bold text-amber-900 dark:text-amber-300 uppercase tracking-wider">Quick Access / Verification Code</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Code: <strong id="debugOtpValue" class="text-base font-black tracking-widest text-[#2b1816] dark:text-amber-400 font-mono">{{ debug_otp }}</strong></p>
+                    </div>
+                </div>
+                <button type="button" id="autoFillBtn" class="px-3.5 py-2 bg-[#2b1816] hover:bg-[#3a1f1f] text-white text-xs font-bold rounded-xl shadow-sm transition shrink-0 flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Auto-Fill
+                </button>
+            </div>
+        </div>
+        {% endif %}
 
         <!-- Feedback Alert Box -->
         <div id="otpMessageBox" class="mb-4 sm:mb-5 text-center font-semibold text-xs sm:text-sm"></div>
