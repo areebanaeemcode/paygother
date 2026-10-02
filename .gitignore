@@ -24,3 +24,9 @@ __pycache__/
 # OS
 Thumbs.db
 .DS_Store
+
+# Documentation & Report exports
+Pay_Together_*
+pdf_inject.txt
+*.docx
+*.pdf
