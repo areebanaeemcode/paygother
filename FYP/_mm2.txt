@@ -1,7 +1,0 @@
-﻿Migrations for 'expenses':
-  FYP\apps\expenses\migrations\0002_alter_expense_payment_method.py
-    ~ Alter field payment_method on expense
-Operations to perform:
-  Apply all migrations: accounts, admin, auth, contenttypes, expenses, notifications, sessions, tours
-Running migrations:
-  Applying expenses.0002_alter_expense_payment_method... OK
