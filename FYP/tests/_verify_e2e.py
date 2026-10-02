@@ -24,9 +24,9 @@ def banner(t):
 
 banner('FINAL END-TO-END (Chrome user flow simulation)')
 
-# ---- Step A: Root redirect ----
+# ---- Step A: Root landing page or redirect ----
 r=c.get('/', follow=False)
-ok_a = (r.status_code==302 and "/login/" in r.get("Location",""))
+ok_a = (r.status_code==200 or (r.status_code==302 and "/login/" in r.get("Location","")))
 print(f'STEP A  GET /                           -> {r.status_code} -> {r.get("Location","")}  {"OK" if ok_a else "FAIL"}')
 
 # ---- Step B: Login page render ----

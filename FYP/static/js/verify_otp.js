@@ -145,10 +145,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await resp.json();
 
             if (resp.ok) {
-                showMsg("Verification successful! Account created. Redirecting to login...", "green");
+                if (data.tokens) {
+                    localStorage.setItem("pt_access_token", data.tokens.access);
+                    localStorage.setItem("pt_refresh_token", data.tokens.refresh);
+                }
+                if (data.user) {
+                    localStorage.setItem("pt_user", JSON.stringify(data.user));
+                }
+                showMsg(data.message || "Verification successful! Redirecting to dashboard...", "green");
                 setTimeout(() => {
-                    window.location.href = data.redirect_url || "/login/";
-                }, 1200);
+                    window.location.href = data.redirect_url || "/client/dashboard/";
+                }, 1000);
             } else {
                 showMsg(data.detail || "Invalid or expired OTP code. Please try again.", "red");
                 verifySubmitBtn.disabled = false;

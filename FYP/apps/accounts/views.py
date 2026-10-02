@@ -203,7 +203,7 @@ class ClientLogoutView(View):
     def get(self, request):
         from django.contrib.auth import logout as django_logout
         django_logout(request)
-        next_url = request.GET.get("next") or "/"
+        next_url = request.GET.get("next") or "/login/"
         response = redirect(next_url)
         response.delete_cookie("jwt_access")
         response.delete_cookie("jwt_refresh")
@@ -220,6 +220,7 @@ class UserRegistrationView(APIView):
         serializer = UserRegistrationSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
+            user.backend = "django.contrib.auth.backends.ModelBackend"
             django_login(request, user)
             refresh = RefreshToken.for_user(user)
             return Response(
@@ -369,16 +370,24 @@ class VerifyRegistrationOTPView(APIView):
             del request.session["pending_registration"]
             request.session.modified = True
 
+        user.backend = "django.contrib.auth.backends.ModelBackend"
+        django_login(request, user)
+        refresh = RefreshToken.for_user(user)
+
         return Response(
             {
                 "success": True,
-                "message": "Account verified and registered successfully! Please log in.",
+                "message": "Account verified and registered successfully!",
                 "user": {
                     "id": user.id,
                     "email": user.email,
                     "first_name": user.first_name,
                 },
-                "redirect_url": "/login/",
+                "tokens": {
+                    "refresh": str(refresh),
+                    "access": str(refresh.access_token),
+                },
+                "redirect_url": "/client/dashboard/",
             },
             status=status.HTTP_201_CREATED,
         )
@@ -429,6 +438,7 @@ class UserLoginAPIView(APIView):
         serializer = UserLoginSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.validated_data["user"]
+            user.backend = "django.contrib.auth.backends.ModelBackend"
             django_login(request, user)
             refresh = RefreshToken.for_user(user)
             return Response(
