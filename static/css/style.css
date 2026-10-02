@@ -807,3 +807,27 @@ h1, h2, h3, h4, h5, h6, p, span, a, td, th, li {
   }
 }
 
+
+/* Dashboard Layout Fluid Utilities - 22 Aug 2026 */
+.dashboard-fluid-container { min-width: 0; width: 100%; }
+
+/* Settlement Module Responsive Polish - 25 Aug 2026 */
+.settlement-card-fluid { min-width: 0; width: 100%; transition: transform 0.2s ease; }
+
+/* Tours Discovery Table Polish - 29 Aug 2026 */
+.tours-table-fluid { width: 100%; border-collapse: separate; border-spacing: 0; }
+
+/* Notification Item Ripple & Transitions - 02 Sep 2026 */
+.notif-card-smooth { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Analytics Chart Aspect Ratio Utilities - 05 Sep 2026 */
+.chart-responsive-box { position: relative; width: 100%; min-height: 280px; }
+
+/* Admin Panel SuperUser Table Styling - 08 Sep 2026 */
+.admin-metric-card { backdrop-filter: blur(8px); border-radius: 1rem; }
+
+/* Profile & Final Release Fluid Layout Utilities - 11 Sep 2026 */
+.profile-fluid-layout { max-width: 100%; min-width: 0; box-sizing: border-box; }
+
+/* Landing Page Release Styling - 20 July 2026 */
+.landing-fluid-container { max-width: 100%; min-width: 0; box-sizing: border-box; }

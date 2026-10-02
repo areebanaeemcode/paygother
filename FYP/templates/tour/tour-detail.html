@@ -50,22 +50,10 @@ Tour Details
             </a>
             {% endif %}
             <a href="/client/logout/" class="flex items-center px-4 py-3 text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 font-medium rounded-xl transition mt-8">
-                <i class="fa-solid fa-right-from-bracket mr-3 w-5"></i> Logout
+                Logout
             </a>
         </nav>
 
-        <div class="p-4 border-t border-slate-100 dark:border-slate-800 relative z-10 space-y-2">
-            <div class="p-2.5 px-3 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/50">
-                <p class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <i class="fa-regular fa-calendar-days"></i> Tour Expedition
-                </p>
-                <p class="text-xs font-extrabold text-slate-800 dark:text-slate-100 mt-0.5">20 Aug 2026</p>
-            </div>
-            <div class="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 px-1">
-                <span>Version</span>
-                <span class="font-bold text-slate-600 dark:text-slate-300">v1.0</span>
-            </div>
-        </div>
     </aside>
 
     <!-- Universal Mobile Topbar & Slide-Out Drawer -->
@@ -104,7 +92,7 @@ Tour Details
                     </button>
                     <a id="settlementLink" title="View tour settlement and balances" href="{{ settlement_url }}"
                         class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl transition font-bold shadow-sm flex items-center gap-2 text-xs sm:text-sm">
-                        <i class="fa-solid fa-scale-balanced"></i> Settlement
+                        Settlement
                     </a>
                     <a id="analyticsLink" title="View detailed expenditure analytics" href="{{ analytics_url }}"
                         class="bg-slate-700 hover:bg-slate-800 text-white px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl transition font-bold shadow-sm flex items-center gap-2 text-xs sm:text-sm">
@@ -171,10 +159,6 @@ Tour Details
             <!-- Tour Join Code (OTP) Shared Alert Banner -->
             <div id="tourOtpAlertBanner"
                 class="mb-6 p-4 sm:p-6 rounded-3xl bg-gradient-to-r from-emerald-50 via-teal-50/50 to-emerald-50 dark:from-emerald-950/40 dark:via-slate-800 dark:to-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div class="flex items-start sm:items-center gap-3 sm:gap-4">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-sm shadow-emerald-500/20">
-                        <i class="fa-solid fa-key"></i>
-                    </div>
                     <div>
                         <div class="flex items-center gap-2 flex-wrap">
                             <span class="text-xs font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-300">Tour Join Code (OTP)</span>
@@ -227,7 +211,7 @@ Tour Details
                 </div>
                 <button id="offlineSyncBtn" aria-label="Sync offline expenses now"
                     class="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-2xl transition font-bold whitespace-nowrap shadow-sm cursor-pointer flex items-center gap-2">
-                    <i class="fa-solid fa-arrows-rotate"></i> Sync Now
+                    Sync Now
                 </button>
             </div>
 
@@ -420,7 +404,7 @@ Tour Details
                     </div>
                     <div id="inviteBalancePreview"
                         class="hidden text-xs font-bold p-3 rounded-xl bg-white border border-indigo-100 flex items-center justify-between shadow-sm">
-                        <span class="text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-scale-balanced text-slate-400"></i> Resulting Net
+                        <span class="text-slate-500 flex items-center gap-1.5">Resulting Net
                             Balance:</span>
                         <span id="inviteNetPreviewText" class="text-xs font-black px-2 py-0.5 rounded-lg"></span>
                     </div>
@@ -572,7 +556,7 @@ Tour Details
                     <!-- Live Net Preview in Edit Modal -->
                     <div id="editBalancePreview"
                         class="text-xs font-bold p-2.5 rounded-xl bg-white border border-indigo-100 flex items-center justify-between shadow-sm">
-                        <span class="text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-scale-balanced text-slate-400"></i> Resulting Net
+                        <span class="text-slate-500 flex items-center gap-1.5">Resulting Net
                             Balance:</span>
                         <span id="editModalNetPreview"
                             class="text-xs font-black px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700">Rs. 0.00</span>
@@ -786,9 +770,6 @@ Tour Details
             <!-- Header with Close Icon -->
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
-                        <i class="fa-solid fa-key"></i>
-                    </div>
                     <div>
                         <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Tour Join Code</h3>
                         <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Shareable Passcode (OTP)</p>

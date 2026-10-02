@@ -55,7 +55,6 @@ Admin Control Center — Pay-Together
                class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium rounded-xl transition">
                 <i class="fa-solid fa-terminal mr-3 w-5 text-emerald-500"></i>
                 <span class="text-sm">Django Backend</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-auto text-slate-400"></i>
             </a>
 
             <!-- Platform Analytics -->
@@ -63,7 +62,6 @@ Admin Control Center — Pay-Together
                class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium rounded-xl transition">
                 <i class="fa-solid fa-chart-pie mr-3 w-5 text-sky-500"></i>
                 <span class="text-sm">Analytics Suite</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-auto text-slate-400"></i>
             </a>
 
             <div class="pt-4 pb-1">
@@ -79,7 +77,6 @@ Admin Control Center — Pay-Together
 
             <!-- Logout -->
             <a href="/client/logout/" class="flex items-center px-4 py-3 text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 font-medium rounded-xl transition mt-4">
-                <i class="fa-solid fa-right-from-bracket mr-3 w-5"></i>
                 <span class="text-sm">Admin Sign Out</span>
             </a>
         </nav>
@@ -142,17 +139,11 @@ Admin Control Center — Pay-Together
                         <i class="fa-solid fa-globe mr-3 w-5 text-indigo-600"></i> Switch to Website (Port 8000) ↗
                     </a>
                     <a href="/client/logout/" class="flex items-center px-4 py-3 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-xl font-semibold text-sm mt-4">
-                        <i class="fa-solid fa-right-from-bracket mr-3 w-5"></i> Logout
+                        Logout
                     </a>
                 </nav>
             </div>
-            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-400 space-y-2">
-                <div class="p-2.5 px-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50">
-                    <p class="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
-                        <i class="fa-regular fa-calendar-days"></i> Admin Audit Cycle
-                    </p>
-                    <p class="text-xs font-black text-slate-800 dark:text-slate-100 mt-0.5">08 Sep 2026</p>
-                </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-400">
                 <div>
                     Logged in as <span class="font-bold text-slate-700 dark:text-slate-200">{{ request.user.email }}</span>
                 </div>
@@ -189,12 +180,10 @@ Admin Control Center — Pay-Together
                     <a href="{% url 'admin-access-pass-gate' %}" target="_blank"
                        class="bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white px-5 py-3 rounded-2xl transition font-bold text-sm shadow-sm flex items-center gap-2">
                         <i class="fa-solid fa-terminal text-emerald-400"></i> Django Admin Gate
-                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 ml-1"></i>
                     </a>
                     <a href="http://127.0.0.1:8000/client/dashboard/" target="_blank"
                        class="bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 px-5 py-3 rounded-2xl transition font-bold text-sm shadow-xs flex items-center gap-2">
                         <i class="fa-solid fa-globe"></i> Open Website (Port 8000)
-                        <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
                     </a>
                 </div>
             </div>
@@ -370,9 +359,6 @@ Admin Control Center — Pay-Together
                     <!-- Security Card -->
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-xs space-y-4">
                         <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
-                                <i class="fa-solid fa-key"></i>
-                            </div>
                             <div>
                                 <h3 class="text-xl font-bold text-slate-900 dark:text-white">Admin Access Passcode</h3>
                                 <p class="text-xs text-slate-500 dark:text-slate-400">Low-level gate for Django backend administration</p>

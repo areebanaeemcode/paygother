@@ -12,8 +12,8 @@ Expense Analytics
         <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-indigo-200/40 blur-3xl"></div>
     </div>
 
-    <!-- Sidebar (sticky / fixed on scroll) -->
-    <aside class="w-64 bg-white dark:bg-[#0f172a] text-slate-800 dark:text-slate-100 border-r border-slate-200 dark:border-slate-800 hidden md:flex flex-col sticky top-0 h-screen shrink-0 overflow-y-auto z-20 transition-colors duration-200">
+    <!-- Sidebar (fixed on scroll) -->
+    <aside class="w-64 bg-white dark:bg-[#0f172a] text-slate-800 dark:text-slate-100 border-r border-slate-200 dark:border-slate-800 hidden md:flex flex-col fixed inset-y-0 left-0 h-screen shrink-0 overflow-y-auto z-30 transition-colors duration-200">
         <div class="px-5 py-5 border-b border-slate-100 dark:border-slate-800 relative z-10">
             <a href="/client/dashboard/" class="flex items-center gap-3 group">
                 <img src="{% static 'img/logo-icon.png' %}" alt="Pay-Together Logo" class="w-10 h-10 rounded-xl object-cover shadow-sm sidebar-logo shrink-0 group-hover:scale-105 transition-transform">
@@ -50,28 +50,16 @@ Expense Analytics
             </a>
             {% endif %}
             <a href="/client/logout/" class="flex items-center px-4 py-3 text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 font-medium rounded-xl transition mt-8">
-                <i class="fa-solid fa-right-from-bracket mr-3 icon-wobble w-5"></i> Logout
+                Logout
             </a>
         </nav>
 
-        <div class="p-4 border-t border-slate-100 dark:border-slate-800 relative z-10 space-y-2">
-            <div class="p-2.5 px-3 rounded-xl bg-teal-50/70 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-900/50">
-                <p class="text-[10px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <i class="fa-regular fa-calendar-days"></i> Fiscal Q3 Range
-                </p>
-                <p class="text-xs font-extrabold text-slate-800 dark:text-slate-100 mt-0.5">05 Sep 2026</p>
-            </div>
-            <div class="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 px-1">
-                <span>Version</span>
-                <span class="font-bold text-slate-600 dark:text-slate-300">v1.0</span>
-            </div>
-        </div>
     </aside>
 
     <!-- Universal Mobile Topbar & Slide-Out Drawer -->
     {% include 'includes/mobile_topbar.html' with active_page='analytics' %}
 
-    <main class="flex-1 min-w-0 px-4 sm:px-6 pt-16 md:pt-5 pb-10 md:px-10 relative z-10">
+    <main class="flex-1 min-w-0 md:ml-64 px-4 sm:px-6 pt-16 md:pt-5 pb-10 md:px-10 relative z-10">
         <div class="max-w-6xl mx-auto">
 
             <div id="messageBox" class="mb-4"></div>
