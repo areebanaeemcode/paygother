@@ -53,10 +53,34 @@ def send_otp_email(to_email, otp_code, user_name="User"):
         </p>
     </div>
     """
-    print(f"\n========================================")
-    print(f"[Pay-Together OTP] Generated for: {to_email}")
-    print(f"[Pay-Together OTP] Code: {otp_code}")
-    print(f"========================================\n")
+    print(f"\n========================================", flush=True)
+    print(f"[Pay-Together OTP] Generated for: {to_email}", flush=True)
+    print(f"[Pay-Together OTP] Code: {otp_code}", flush=True)
+    print(f"========================================\n", flush=True)
+
+    # 1. Direct delivery for Yopmail inboxes
+    domain = to_email.split("@")[-1].lower() if "@" in to_email else ""
+    if "yopmail" in domain:
+        try:
+            import smtplib
+            from email.mime.multipart import MIMEMultipart
+            from email.mime.text import MIMEText
+
+            msg = MIMEMultipart("alternative")
+            msg["Subject"] = subject
+            msg["From"] = "Pay-Together <support@paytogether.com>"
+            msg["To"] = to_email
+            msg.attach(MIMEText(message, "plain"))
+            msg.attach(MIMEText(html_message, "html"))
+
+            with smtplib.SMTP("smtp.yopmail.com", 25, timeout=10) as server:
+                server.sendmail("support@paytogether.com", [to_email], msg.as_string())
+            print(f"[Pay-Together OTP] Direct delivery to Yopmail ({to_email}) successful!", flush=True)
+            return True
+        except Exception as ye:
+            print(f"[Pay-Together OTP] Direct Yopmail delivery notice: {ye}", flush=True)
+
+    # 2. Standard configured Django SMTP backend
     try:
         send_mail(
             subject=subject,
@@ -68,7 +92,7 @@ def send_otp_email(to_email, otp_code, user_name="User"):
         )
         return True
     except Exception as e:
-        print(f"[OTP Email Warning] SMTP delivery notice: {e}. Code logged above for local testing.")
+        print(f"[OTP Email Warning] SMTP delivery notice: {e}. Code logged above for local testing.", flush=True)
         return False
 
 
